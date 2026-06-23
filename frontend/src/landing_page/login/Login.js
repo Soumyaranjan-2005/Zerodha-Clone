@@ -21,7 +21,7 @@ function Login() {
         event.preventDefault();
 
         try {
-            const response = await fetch('https://zerodha-clone-backend-eight.vercel.app', {
+            const response = await fetch('https://zerodha-clone-backend-eight.vercel.app/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
