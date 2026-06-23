@@ -18,105 +18,105 @@ function Footer() {
           </div>
           <div className="col">
             <p>Company</p>
-            <a className="text-muted" href="" style={{ textDecoration: "none"}}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none"}}>
               About
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Philosophy
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Press & media
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Careers
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Zerodha Cares (CSR)
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Zerodha.tech
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Open source
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Referral program
             </a>
             <br />
           </div>
           <div className="col">
             <p>Support</p>
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Contact us
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               How to file a complaint?
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Status of your complaints
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Bulletin
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Circular
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Z-Connect blog
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Downloads
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Support portal
             </a>
             <br />
           </div>
           <div className="col">
             <p>Account</p>
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Open demat account
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Minor demat account
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               NRI demat account
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               HUF demat account
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Commodity
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Dematerialisation
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Fund transfer
             </a>
             <br />
-            <a className="text-muted" href="" style={{ textDecoration: "none" }}>
+            <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               MTF
             </a>
             <br />
@@ -131,11 +131,11 @@ function Footer() {
             Dollars Colony, Opp. Clarence Public School, J.P Nagar 4th Phase,
             Bengaluru - 560078, Karnataka, India. For any complaints pertaining
             to securities broking please write to{" "}
-            <a href="" style={{ textDecoration: "none" }}>
+            <a href="/" style={{ textDecoration: "none" }}>
               complaints@zerodha.com
             </a>
             , for DP related to{" "}
-            <a href="" style={{ textDecoration: "none" }}>
+            <a href="/" style={{ textDecoration: "none" }}>
               dp@zerodha.com
             </a>
             . Please ensure you carefully read the Risk Disclosure Document as
@@ -144,7 +144,7 @@ function Footer() {
           <br />
           <p>
             Procedure to file a complaint on{" "}
-            <a href="" style={{ textDecoration: "none" }}>
+            <a href="/" style={{ textDecoration: "none" }}>
               SEBI SCORES
             </a>
             : Register on SCORES portal. Mandatory details for filing complaints
@@ -153,7 +153,7 @@ function Footer() {
           </p>
           <br />
           <p>
-            <a href="" style={{ textDecoration: "none" }}>
+            <a href="/" style={{ textDecoration: "none" }}>
               Smart Online Dispute Resolution | Grievances Redressal Mechanism
             </a>
           </p>
@@ -175,7 +175,7 @@ function Footer() {
           <br />
           <p>
             India's largest broker based on networth as per NSE.{" "}
-            <a href="" style={{ textDecoration: "none" }}>
+            <a href="/" style={{ textDecoration: "none" }}>
               NSE broker factsheet
             </a>
           </p>
@@ -197,7 +197,7 @@ function Footer() {
             stock tips, and have not authorized anyone to trade on behalf of
             others. If you find anyone claiming to be part of Zerodha and
             offering such services, please{" "}
-            <a href="" style={{ textDecoration: "none" }}>
+            <a href="/" style={{ textDecoration: "none" }}>
               create a ticket here.
             </a>
           </p>
@@ -222,17 +222,17 @@ function Footer() {
             (RBI).
           </p>
           <div class="mb-4 mt-4" style={{display:"flex",gap:"30px", alignItems:"center"}}>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>NSE</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>BSE</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>MCX</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>MSEI</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>Terms & conditions</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>Policies & procedures</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>Privacy policy</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>Disclosure</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>For investor's attention</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>Investor charter</a>
-            <a href="" style={{textDecoration:"none", color:"#5e5e5e"}}>Sitemap</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>NSE</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>BSE</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>MCX</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>MSEI</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>Terms & conditions</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>Policies & procedures</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>Privacy policy</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>Disclosure</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>For investor's attention</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>Investor charter</a>
+            <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>Sitemap</a>
           </div>
         </div>
       </div>

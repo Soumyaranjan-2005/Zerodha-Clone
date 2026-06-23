@@ -31,7 +31,7 @@ function Team() {
             Playing basketball is his zen.
           </p>
           <p>
-            Connect on <a href="" style={{textDecoration:"none"}}>Homepage</a> / <a href="" style={{textDecoration:"none"}}>TradingQnA</a> / <a href="" style={{textDecoration:"none"}}>Twitter</a>
+            Connect on <a href="/" style={{textDecoration:"none"}}>Homepage</a> / <a href="/" style={{textDecoration:"none"}}>TradingQnA</a> / <a href="/" style={{textDecoration:"none"}}>Twitter</a>
           </p>
         </div>
       </div>
