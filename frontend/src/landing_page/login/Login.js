@@ -35,7 +35,7 @@ function Login() {
             }
 
             // Update this URL to the port where your dashboard app runs.
-            window.location.href = 'http://localhost:3001';
+            window.location.href = 'https://zerodha-clone-dashboard-two.vercel.app';
         } catch (error) {
             alert(error.message);
         }

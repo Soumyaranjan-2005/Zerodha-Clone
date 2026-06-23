@@ -22,16 +22,27 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect(uri)
-  .then(() => {
-    console.log('MongoDB connected');
-    app.listen(PORT, () => {
-      console.log(`App started on port ${PORT}!`);
+if (uri) {
+  mongoose.connect(uri)
+    .then(() => {
+      console.log('MongoDB connected');
+      app.listen(PORT, () => {
+        console.log(`App started on port ${PORT}!`);
+      });
+    })
+    .catch((error) => {
+      console.error('MongoDB connection error:', error);
+      console.warn('Starting server without DB connection');
+      app.listen(PORT, () => {
+        console.log(`App started on port ${PORT} (no DB)`);
+      });
     });
-  })
-  .catch((error) => {
-    console.error('MongoDB connection error:', error);
+} else {
+  console.warn('MONGO_URL not provided; starting without DB');
+  app.listen(PORT, () => {
+    console.log(`App started on port ${PORT} (no DB)`);
   });
+}
 
 const normalizeEmail = (email) => (email || '').trim().toLowerCase();
 
