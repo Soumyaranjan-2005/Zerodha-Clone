@@ -19,16 +19,11 @@ const Menu = () => {
     localStorage.clear();
     sessionStorage.clear();
 
-    let loginUrl = FRONTEND_LOGIN_PATH;
-    if (FRONTEND_BASE_URL && FRONTEND_BASE_URL.trim() !== '') {
-      const baseUrl = FRONTEND_BASE_URL.replace(/\/+$/, '');
-      const loginPath = FRONTEND_LOGIN_PATH.startsWith('/')
-        ? FRONTEND_LOGIN_PATH
-        : `/${FRONTEND_LOGIN_PATH}`;
-      loginUrl = `${baseUrl}${loginPath}`;
-    }
-
-    window.location.href = loginUrl;
+    const baseUrl = FRONTEND_BASE_URL.replace(/\/+$/, '');
+    const loginPath = FRONTEND_LOGIN_PATH.startsWith('/')
+      ? FRONTEND_LOGIN_PATH
+      : `/${FRONTEND_LOGIN_PATH}`;
+    window.location.href = `${baseUrl}${loginPath}`;
   };
 
   useEffect(() => {
