@@ -1,4 +1,10 @@
-require("dotenv").config();
+try {
+  require("dotenv").config();
+} catch (err) {
+  if (err.code !== "MODULE_NOT_FOUND") {
+    throw err;
+  }
+}
 
 const dns = require("dns");
 dns.setServers(["8.8.8.8", "1.1.1.1"]);

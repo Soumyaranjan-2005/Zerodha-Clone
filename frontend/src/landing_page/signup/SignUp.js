@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SignUp.css';
+import { API_BASE_URL } from '../../config';
 
 function SignUp() {
     const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ function SignUp() {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:3002/signup', {
+            const response = await fetch(`${API_BASE_URL}/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

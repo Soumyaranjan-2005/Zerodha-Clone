@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
+import { API_BASE_URL } from '../../config';
 
 function Login() {
     const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ function Login() {
         event.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:3002/login', {
+            const response = await fetch(`${API_BASE_URL}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
