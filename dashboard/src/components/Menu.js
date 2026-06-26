@@ -5,10 +5,12 @@ import { FRONTEND_BASE_URL, FRONTEND_LOGIN_PATH } from "../config";
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const profileRef = useRef(null);
 
   const handleMenuClick = (index) => {
     setSelectedMenu(index);
+    setIsMobileMenuOpen(false);
   };
 
   const handleProfileClick = () => {
@@ -44,8 +46,8 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <img src="logo.png" alt="Logo" style={{ width: "50px" }} />
-      <div className="menus">
+      <img src="logo.png" alt="Logo" className="menu-logo" />
+      <div className={`menus ${isMobileMenuOpen ? "open" : ""}`}>
         <ul>
           <li key="dashboard">
             <Link
@@ -114,7 +116,17 @@ const Menu = () => {
             </Link>
           </li>
         </ul>
-        <hr />
+      </div>
+      <div className="menu-header-actions">
+        <button
+          type="button"
+          className="menu-toggle d-lg-none"
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+          aria-expanded={isMobileMenuOpen}
+          aria-label="Toggle navigation menu"
+        >
+          &#9776;
+        </button>
         <div className="profile-wrapper" ref={profileRef}>
           <button
             type="button"

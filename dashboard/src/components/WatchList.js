@@ -55,19 +55,10 @@ const WatchList = () => {
     <div className="watchlist-container">
       {/* Close button for mobile */}
       <button 
+        type="button"
         className="close-watchlist d-lg-none"
         onClick={handleClose}
-        style={{
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          background: 'none',
-          border: 'none',
-          fontSize: '24px',
-          cursor: 'pointer',
-          color: '#666',
-          zIndex: 1001
-        }}
+        aria-label="Close watchlist"
       >
         ×
       </button>
@@ -89,7 +80,9 @@ const WatchList = () => {
         })}
       </ul>
 
-      <DoughnutChart data={data} />
+      <div className="chart-container">
+        <DoughnutChart data={data} />
+      </div>
     </div>
   );
 };
@@ -111,7 +104,7 @@ const WatchListItem = ({ stock }) => {
     <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className="item">
         <p className={stock.isDown ? "down" : "up"}>{stock.name}</p>
-        <div className="itemInfo">
+        <div className="item-info">
           <span className="percent">{stock.percent}</span>
           {stock.isDown ? (
             <KeyboardArrowDown className="down" />

@@ -1,5 +1,11 @@
+html,
 body {
   margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -793,28 +799,33 @@ hr {
   position: relative;
 }
 
-.item-info {
+.item-info,
+.itemInfo {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.item-info > * {
+.item-info > *,
+.itemInfo > * {
   margin-right: 8px;
 }
 
-.item-info span:nth-child(1) {
+.item-info span:nth-child(1),
+.itemInfo span:nth-child(1) {
   color: rgb(141, 141, 141);
   flex: 1;
 }
 
-.item-info span:nth-child(2) {
+.item-info span:nth-child(2),
+.itemInfo span:nth-child(2) {
   color: rgb(223, 73, 73);
   margin-right: 12px;
   flex: 2;
 }
 
-.item-info span:nth-child(3) {
+.item-info span:nth-child(3),
+.itemInfo span:nth-child(3) {
   color: rgb(223, 73, 73);
   flex: 1;
 }
@@ -948,6 +959,87 @@ hr {
   background-color: rgb(212, 212, 212);
 }
 
+/* Responsive utilities (Bootstrap-like, no Bootstrap dependency) */
+@media (min-width: 992px) {
+  .d-lg-none {
+    display: none !important;
+  }
+
+  .menu-container {
+    flex-wrap: nowrap;
+  }
+
+  .menu-header-actions {
+    margin-left: 0;
+    flex-shrink: 0;
+  }
+
+  .menus {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+.menu-logo {
+  width: 50px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.menu-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.menu-toggle {
+  display: none;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #333;
+}
+
+.watchlist-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  padding: 10px 15px;
+  border-radius: 50px;
+  background-color: #4184f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-size: 0.85rem;
+}
+
+.close-watchlist {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+  z-index: 1001;
+  line-height: 1;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
   .dashboard-container {
@@ -1033,6 +1125,55 @@ hr {
 }
 
 @media (max-width: 991px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-container {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .menu-header-actions {
+    margin-left: auto;
+  }
+
+  .menus {
+    display: none;
+    width: 100%;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    order: 3;
+  }
+
+  .menus.open {
+    display: flex;
+  }
+
+  .menus ul {
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .menus li {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 0.25rem;
+    width: 100%;
+  }
+
+  .menus hr {
+    width: 100%;
+    margin: 0.75rem 0;
+  }
+
+  .profile-wrapper {
+    position: relative;
+  }
+
   /* Hide watchlist by default on mobile, show only when toggled */
   .watchlist-wrapper {
     display: none;
@@ -1057,26 +1198,22 @@ hr {
   }
 
   .content {
-    padding: 3% 2%;
+    padding: 20px 15px;
   }
 
-  .menu-container {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .menus {
-    flex-direction: column;
+  .order-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     width: 100%;
   }
 
-  .menus ul {
-    flex-wrap: wrap;
+  .order-table table {
+    min-width: 600px;
   }
 
-  .menus li {
-    margin-right: 10px;
-    margin-bottom: 5px;
+  .menu-container {
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .menu {

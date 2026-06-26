@@ -8,15 +8,15 @@ function Footer() {
     >
       <div className="container mt-5">
         <div className="row mt-5">
-          <div className="col">
+          <div className="col-12 col-sm-6 col-lg-3">
             <img
               src="\media\images\logo.svg"
               alt="Zerodha Logo"
-              style={{ width: "50%" }}
+              className="footer-logo"
             />
             <p>&copy; 2010 - 2026, Zerodha Broking Ltd. All rights reserved.</p>
           </div>
-          <div className="col">
+          <div className="col-12 col-sm-6 col-lg-3">
             <p>Company</p>
             <a className="text-muted" href="/" style={{ textDecoration: "none"}}>
               About
@@ -51,7 +51,7 @@ function Footer() {
             </a>
             <br />
           </div>
-          <div className="col">
+          <div className="col-12 col-sm-6 col-lg-3">
             <p>Support</p>
             <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Contact us
@@ -86,7 +86,7 @@ function Footer() {
             </a>
             <br />
           </div>
-          <div className="col">
+          <div className="col-12 col-sm-6 col-lg-3">
             <p>Account</p>
             <a className="text-muted" href="/" style={{ textDecoration: "none" }}>
               Open demat account
@@ -221,7 +221,7 @@ function Footer() {
             mechanism. Fixed deposits are regulated by the Reserve Bank of India
             (RBI).
           </p>
-          <div class="mb-4 mt-4" style={{display:"flex",gap:"30px", alignItems:"center"}}>
+          <div className="footer-legal-links mb-4 mt-4">
             <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>NSE</a>
             <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>BSE</a>
             <a href="/" style={{textDecoration:"none", color:"#5e5e5e"}}>MCX</a>
