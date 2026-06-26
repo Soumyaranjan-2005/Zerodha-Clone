@@ -35,7 +35,10 @@ function Login() {
                 throw new Error(data.message || 'Login failed');
             }
 
-            // Update this URL to the port where your dashboard app runs.
+            if (data.token) {
+                window.localStorage.setItem('authToken', data.token);
+            }
+
             window.location.href = 'https://srm-zerodha-dashboard.vercel.app';
         } catch (error) {
             alert(error.message);

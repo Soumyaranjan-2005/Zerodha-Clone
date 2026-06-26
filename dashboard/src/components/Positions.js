@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { API_BASE_URL } from "../config";
+import api from "../api";
 
 const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`${API_BASE_URL}/allPositions`)
+    api
+      .get("/allPositions")
       .then((res) => {
         setAllPositions(Array.isArray(res.data) ? res.data : []);
       })

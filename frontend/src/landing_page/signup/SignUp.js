@@ -41,6 +41,10 @@ function SignUp() {
                 throw new Error(data.message || 'Signup failed');
             }
 
+            if (data.token) {
+                window.localStorage.setItem('authToken', data.token);
+            }
+
             alert('Signup successful. Redirecting to login...');
             window.location.href = '/Login';
         } catch (error) {

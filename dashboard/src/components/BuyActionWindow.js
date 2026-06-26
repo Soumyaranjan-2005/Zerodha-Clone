@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
-import { API_BASE_URL } from "../config";
+import api from "../api";
 
 import GeneralContext from "./GeneralContext";
 
@@ -12,13 +11,17 @@ const BuyActionWindow = ({ uid }) => {
 
   const generalContext = useContext(GeneralContext);
 
-  const handleBuyClick = () => {
-    axios.post(`${API_BASE_URL}/newOrder`, {
-      name: uid,
-      qty: stockQuantity,
-      price: stockPrice,
-      mode: "BUY",
-    });
+  const handleBuyClick = async () => {
+    try {
+      await api.post("/newOrder", {
+        name: uid,
+        qty: stockQuantity,
+        price: stockPrice,
+        mode: "BUY",
+      });
+    } catch (error) {
+      console.error("Failed to create order:", error);
+    }
 
     generalContext.closeBuyWindow();
   };

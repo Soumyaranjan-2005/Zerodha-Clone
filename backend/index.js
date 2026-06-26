@@ -14,6 +14,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const { HoldingsModel } = require('./model/HoldingsModel');
 const { PositionsModel } = require('./model/PositionsModel');
@@ -52,17 +54,42 @@ if (uri) {
 
 const normalizeEmail = (email) => (email || '').trim().toLowerCase();
 
-const hashPassword = (password) => {
-  const crypto = require('crypto');
-  return crypto.createHash('sha256').update(password).digest('hex');
-};
+const SECRET_KEY = process.env.JWT_SECRET || 'your_jwt_secret_key';
+const TOKEN_EXPIRY = '7d';
+
+const hashPassword = (password) => bcrypt.hash(password, 10);
+const comparePassword = (plainPassword, hashedPassword) => bcrypt.compare(plainPassword, hashedPassword);
 
 const getPublicUser = (user) => ({
   id: user._id,
   name: user.name,
   email: user.email,
   phone: user.phone,
+  role: user.role,
 });
+
+const authenticateJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization || '';
+  if (!authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ message: 'Missing or invalid authorization header.' });
+  }
+
+  const token = authHeader.split(' ')[1];
+  jwt.verify(token, SECRET_KEY, (err, user) => {
+    if (err) {
+      return res.status(401).json({ message: 'Invalid or expired token.' });
+    }
+    req.user = user;
+    next();
+  });
+};
+
+const authorizeAdmin = (req, res, next) => {
+  if (req.user?.role !== 'admin') {
+    return res.status(403).json({ message: 'Forbidden. Admin access required.' });
+  }
+  next();
+};
 
 // app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
@@ -235,32 +262,26 @@ const getPublicUser = (user) => ({
 // });
 
 
-app.get('/allHoldings', async(req,res)=>{
-  let allHoldings  = await HoldingsModel.find({});
-res.json(allHoldings);
-
+app.get('/allHoldings', authenticateJWT, async (req, res) => {
+  const allHoldings = await HoldingsModel.find({});
+  res.json(allHoldings);
 });
 
-app.get('/allPositions', async(req,res)=>{
-  let allPositions  = await PositionsModel.find({});
-res.json(allPositions);
-
+app.get('/allPositions', authenticateJWT, async (req, res) => {
+  const allPositions = await PositionsModel.find({});
+  res.json(allPositions);
 });
 
-app.post('/newOrder', async(req,res)=>{
-
-  let newOrder = new OrdersModel({
-
+app.post('/newOrder', authenticateJWT, async (req, res) => {
+  const newOrder = new OrdersModel({
     name: req.body.name,
     qty: req.body.qty,
     price: req.body.price,
     model: req.body.model,
-
   });
 
   await newOrder.save();
-
-  res.send("order saved!");
+  res.send('order saved!');
 });
 
 app.post('/signup', async (req, res) => {
@@ -276,7 +297,7 @@ app.post('/signup', async (req, res) => {
       return res.status(409).json({ message: 'Email is already registered.' });
     }
 
-    const hashedPassword = hashPassword(password);
+    const hashedPassword = await hashPassword(password);
     const newUser = new UsersModel({
       name,
       phone,
@@ -285,7 +306,8 @@ app.post('/signup', async (req, res) => {
     });
 
     await newUser.save();
-    res.status(201).json({ message: 'User created successfully.', user: getPublicUser(newUser) });
+    const token = jwt.sign({ id: newUser._id, email: newUser.email, role: newUser.role }, SECRET_KEY, { expiresIn: TOKEN_EXPIRY });
+    res.status(201).json({ message: 'User created successfully.', user: getPublicUser(newUser), token });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error. Please try again.' });
@@ -300,20 +322,22 @@ app.post('/login', async (req, res) => {
     }
 
     const normalizedEmail = normalizeEmail(email);
-    const hashedPassword = hashPassword(password);
-
-    const user = await UsersModel.findOne({ email: normalizedEmail, password: hashedPassword });
+    const user = await UsersModel.findOne({ email: normalizedEmail });
     if (!user) {
       return res.status(401).json({ message: 'Invalid email or password.' });
     }
 
-    res.status(200).json({ message: 'Login successful.', user: getPublicUser(user) });
+    const passwordMatches = await comparePassword(password, user.password);
+    if (!passwordMatches) {
+      return res.status(401).json({ message: 'Invalid email or password.' });
+    }
+
+    const token = jwt.sign({ id: user._id, email: user.email, role: user.role }, SECRET_KEY, { expiresIn: TOKEN_EXPIRY });
+    res.status(200).json({ message: 'Login successful.', user: getPublicUser(user), token });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error. Please try again.' });
   }
 });
 
-app.listen(PORT, () => {
-  console.log("App started!");
-});
+
