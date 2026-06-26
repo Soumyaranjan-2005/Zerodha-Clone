@@ -31,6 +31,8 @@ function Login() {
             });
 
             const data = await response.json();
+            console.log('Backend response:', { status: response.status, data });
+
             if (!response.ok) {
                 throw new Error(data.message || 'Login failed');
             }
@@ -40,9 +42,11 @@ function Login() {
                 const dashboardUrl = `https://srm-zerodha-dashboard.vercel.app?token=${encodeURIComponent(data.token)}`;
                 window.location.href = dashboardUrl;
             } else {
+                console.error('No token in response:', data);
                 alert('Login failed: No token received.');
             }
         } catch (error) {
+            console.error('Login error:', error);
             alert(error.message);
         }
     };
