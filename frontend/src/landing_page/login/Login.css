@@ -110,3 +110,89 @@
 .form-footer a:hover {
     text-decoration: underline;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .login-page {
+        min-height: 100vh;
+        padding: 16px;
+    }
+
+    .login-card {
+        max-width: 100%;
+        padding: 24px;
+    }
+
+    .login-card h1 {
+        font-size: 1.5rem;
+    }
+
+    .login-card p {
+        font-size: 0.9rem;
+    }
+
+    .login-form label {
+        font-size: 0.9rem;
+    }
+
+    .login-form input,
+    .password-toggle {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .login-button {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-page {
+        padding: 12px;
+    }
+
+    .login-card {
+        padding: 20px;
+    }
+
+    .login-card h1 {
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .login-card p {
+        font-size: 0.85rem;
+        margin-bottom: 16px;
+    }
+
+    .login-form {
+        gap: 14px;
+    }
+
+    .login-form label {
+        font-size: 0.85rem;
+        gap: 6px;
+    }
+
+    .login-form input,
+    .password-toggle {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .password-input-row {
+        gap: 8px;
+    }
+
+    .login-button {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .form-footer {
+        font-size: 0.85rem;
+        margin-top: 16px;
+    }
+}
+
