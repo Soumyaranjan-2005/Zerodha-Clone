@@ -18,6 +18,7 @@ const BuyActionWindow = ({ uid }) => {
         qty: stockQuantity,
         price: stockPrice,
         mode: "BUY",
+        model: "BUY",
       });
     } catch (error) {
       console.error("Failed to create order:", error);

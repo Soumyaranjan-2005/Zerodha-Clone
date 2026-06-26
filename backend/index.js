@@ -272,6 +272,11 @@ app.get('/allPositions', authenticateJWT, async (req, res) => {
   res.json(allPositions);
 });
 
+app.get('/allOrders', authenticateJWT, async (req, res) => {
+  const allOrders = await OrdersModel.find({});
+  res.json(allOrders);
+});
+
 app.post('/newOrder', authenticateJWT, async (req, res) => {
   const newOrder = new OrdersModel({
     name: req.body.name,
